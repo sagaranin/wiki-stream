@@ -7,7 +7,7 @@ RUN git clone https://github.com/sagaranin/wiki-stream.git
 WORKDIR /wiki-stream
 
 RUN mvn clean install
-RUN cp target/*.jar /app.jar
+RUN cp target/wiki-stream-1.0-SNAPSHOT.jar /app.jar
 RUN rm -rf /wiki-stream
 
 ENTRYPOINT ["java", "-jar", "/app.jar"]
