@@ -70,7 +70,7 @@
                     <archive>
                         <manifest>
                             <addClasspath>true</addClasspath>
-                            <mainClass>.ru.larnerweb.wiki.stream.StreamStarterApp.java</mainClass>
+                            <mainClass>ru.larnerweb.wiki.stream.StreamStarterApp.java</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
