@@ -29,12 +29,13 @@ public class StreamStarterApp {
         KStream<String, String> events = builder.stream("wiki");
         KStream<String, String> eventsWithKeys = events.selectKey((k, v) -> extractKey(v));
 
-        KStream<String, String>[] branches = eventsWithKeys.branch(
-                (k, v) -> v.contains("\"edit\""),
-                (k, v) -> v.contains("\"log\""),
-                (k, v) -> v.contains("\"categorize\""),
-                (k, v) -> v.contains("\"new\""),
-                (k, v) -> true);
+        KStream<String, String>[] branches =
+                eventsWithKeys.branch(
+                    (k, v) -> v.contains("\"edit\""),
+                    (k, v) -> v.contains("\"log\""),
+                    (k, v) -> v.contains("\"categorize\""),
+                    (k, v) -> v.contains("\"new\""),
+                    (k, v) -> true);
 
         branches[0].to("wiki-edit");
         branches[1].to("wiki-log");
