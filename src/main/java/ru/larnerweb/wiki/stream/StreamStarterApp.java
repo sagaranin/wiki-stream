@@ -26,7 +26,7 @@ public class StreamStarterApp {
         properties.put(StreamsConfig.DEFAULT_VALUE_SERDE_CLASS_CONFIG, Serdes.String().getClass());
 
         StreamsBuilder builder = new StreamsBuilder();
-        KStream<String, String> events = builder.stream("wiki");
+        KStream<String, String> events = builder.stream("wiki-src");
         KStream<String, String> eventsWithKeys = events.selectKey((k, v) -> extractKey(v));
 
         KStream<String, String>[] branches =
